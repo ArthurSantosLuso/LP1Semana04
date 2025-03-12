@@ -47,6 +47,10 @@ namespace BetterDecorador
             return textoFinal;
         }
 
+        /// <summary>
+        /// Called when no args are sent to the program.
+        /// </summary>
+        /// <returns>Error message for not having arguments.</returns>
         private static string Decor()
         {
             return Decor("User did not specify args!", '=', 3);
