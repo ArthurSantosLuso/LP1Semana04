@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
+using System.Security.Cryptography;
 
 namespace BetterDecorador
 {
@@ -13,7 +15,10 @@ namespace BetterDecorador
         /// <param name="args">Arguments sent to the program via script run.</param>
         private static void Main(string[] args)
         {
-            Console.WriteLine(Decor(args[0].Trim(' '), char.Parse(args[1]), int.Parse(args[2])));
+            if (args.Length == 0)
+                Console.WriteLine(Decor());
+            else
+                Console.WriteLine(Decor(args[0].Trim(' '), char.Parse(args[1]), int.Parse(args[2])));
         }
 
         /// <summary>
@@ -40,6 +45,11 @@ namespace BetterDecorador
             }
 
             return textoFinal;
+        }
+
+        private static string Decor()
+        {
+            return Decor("User did not specify args!", '=', 3);
         }
     }
 }
